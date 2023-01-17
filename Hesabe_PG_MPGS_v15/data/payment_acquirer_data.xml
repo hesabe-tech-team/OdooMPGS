@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="payment_acquirer_hesabe_mpgs" model="payment.acquirer">
+        <field name="name">Hesabe MPGS</field>
+        <field name="provider">Hesabe_PG_MPGS_v15</field>
+        <field name="redirect_form_view_id" ref="hesabe_mpgs_form"/>
+        <field name="support_authorization">False</field>
+        <field name="support_fees_computation">False</field>
+        <field name="support_refund"></field>
+        <field name="support_tokenization">False</field>
+        <field name="image_128" type="base64" file="Hesabe_PG_MPGS_v15/static/src/img/hesabe_icon.png"/>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="state">test</field>
+        <field name="pre_msg"><![CDATA[<p>You will be redirected to the Hesabe Knet website after clicking on the payment button.</p>]]></field>
+        <field name="merchant_code">Your Merchant Code Provided by Hesabe</field>
+        <field name="access_code">Your Access Code Provided by Hesabe</field>
+        <field name="secret_key">Your Secret Key Provided by Hesabe</field>
+        <field name="iv_key">Your IV Key Provided by Hesabe</field>
+        <field name="api_version">2.0</field>
+        <field name="production_url">https://api.hesabe.com</field>
+        <field name="sandbox_url">https://sandbox.hesabe.com</field>
+    </record>
+	
+    <record id="payment_method_Hesabe_PG_MPGS_v15" model="account.payment.method">
+        <field name="name">Hesabe_PG_MPGS_v15</field>
+        <field name="code">Hesabe_PG_MPGS_v15</field>
+        <field name="payment_type">inbound</field>
+    </record>
+</odoo>

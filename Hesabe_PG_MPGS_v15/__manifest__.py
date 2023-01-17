@@ -17,7 +17,7 @@
         'views/payment_views.xml',
         'data/payment_acquirer_data.xml',
     ],
-    'images': ['static/description/banner.png'],
+    'images': ['static/description/Banner.PNG'],
     'installable': True,
     'application': True,
     'auto_install': False,

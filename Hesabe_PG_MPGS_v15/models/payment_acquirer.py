@@ -42,11 +42,11 @@ class PaymentAcquirerHesabe(models.Model):
             "merchantCode": acqid.merchant_code,
             "currency": company.currency_id.name,
             "amount": amount,
-            "responseUrl": urls.url_join(base_url, '/payment/hesabe/%s/return' % ('knet' if self.provider == 'Payment_hesabe' else 'mpgs')),
-            "paymentType": 1 if self.provider == 'Payment_hesabe' else 2,
+            "responseUrl": urls.url_join(base_url, '/payment/hesabe/%s/return' % ('mpgs' if self.provider == 'Hesabe_PG_MPGS_v15' else 'knet')),
+            "paymentType": 2 if self.provider == 'Hesabe_PG_MPGS_v15' else 1,
             "version": acqid.api_version,
             "orderReferenceNumber": referenceno,
-            "failureUrl": urls.url_join(base_url, '/payment/hesabe/%s/fail' % ('knet' if self.provider == 'Payment_hesabe' else 'mpgs')),
+            "failureUrl": urls.url_join(base_url, '/payment/hesabe/%s/fail' % ('mpgs' if self.provider == 'Hesabe_PG_MPGS_v15' else 'knet')),
             # Add more variables here
             # "variable1": values['reference'],
             # Use to compare with response value amount

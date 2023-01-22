@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="hesabe_mpgs_form">
+        <form t-attf-action="/payment/hesabe" method="POST">
+            <input type="hidden" name="form_url" t-att-value="form_url"/>
+        </form>
+    </template>
+	
+</odoo>

@@ -3,7 +3,7 @@
     'name': "Hesabe PG For MPGS",
     'author': "Hesabe",
     'website': "https://developer.hesabe.com/docs/2.0/kits/odoo",
-    'version': '15.0.0.0',
+    'version': '16.0.0.0',
     'price': 49.99,
     'currency': 'USD',
     'sequence': -97,

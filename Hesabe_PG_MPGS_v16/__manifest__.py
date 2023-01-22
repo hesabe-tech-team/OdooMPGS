@@ -1,0 +1,27 @@
+# -*- coding: utf-8 -*-
+{
+    'name': "Hesabe PG For MPGS",
+    'author': "Hesabe",
+    'website': "https://developer.hesabe.com/docs/2.0/kits/odoo",
+    'version': '15.0.0.0',
+    'price': 49.99,
+    'currency': 'USD',
+    'sequence': -97,
+    'category': 'Accounting/Payment Acquirers',
+    'summary': 'Payment Acquirer: Hesabe Implementation',
+    'description': """Hesabe Payment Gateway For MPGS for version 16""",
+    'company': 'Hesabe Company for Electronic Payments & Settlements',
+    'depends': ['payment'],
+    'data': [
+        'views/payment_hesabe_templates.xml',
+        'views/payment_views.xml',
+        'data/payment_acquirer_data.xml',
+    ],
+    'images': ['static/description/Banner.PNG'],
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+    'post_init_hook': 'post_init_hook',
+    'uninstall_hook': 'uninstall_hook',
+    'license': 'LGPL-3',
+}

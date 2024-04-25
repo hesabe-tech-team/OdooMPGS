@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
 import json
-from odoo import models, fields, api, _
+from odoo import models, fields, api, _ # type: ignore
 from werkzeug import urls
-from odoo.addons.Hesabe_PG_MPGS_v15.models.hesabecrypt import encrypt, decrypt
-from odoo.addons.Hesabe_PG_MPGS_v15.models.hesabeutil import checkout
-from odoo.exceptions import ValidationError
+from odoo.addons.Hesabe_PG_MPGS_v15.models.hesabecrypt import encrypt, decrypt # type: ignore
+from odoo.addons.Hesabe_PG_MPGS_v15.models.hesabeutil import checkout # type: ignore
+from odoo.exceptions import ValidationError # type: ignore
 
 class PaymentAcquirerHesabe(models.Model):
     _inherit = 'payment.acquirer'
@@ -38,6 +38,12 @@ class PaymentAcquirerHesabe(models.Model):
         base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')
         company = self.env['res.company'].search([('id', '=', self.env.company.id)], limit=1).sudo()
         
+        order = self.env['sale.order'].browse(partnerid)
+        current_user =  order.partner_id
+        name = current_user.name
+        email = current_user.email
+        mobile = current_user.phone
+
         payload = {
             "merchantCode": acqid.merchant_code,
             "currency": company.currency_id.name,
@@ -54,6 +60,9 @@ class PaymentAcquirerHesabe(models.Model):
             # "variable3": values['reference'],
             # "variable4": values['reference'],
             # "variable5": values['reference'],
+            "name" : name,
+            "mobile_number"  : mobile,
+            "email" : email
         }
         
         ComvertPayload = json.dumps(payload)

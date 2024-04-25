@@ -2,10 +2,10 @@
 
 import json
 import werkzeug
-from odoo import http
-from odoo.http import request
+from odoo import http # type: ignore
+from odoo.http import request # type: ignore
 import PyPDF2
-from odoo.addons.Hesabe_PG_MPGS_v15.models.hesabecrypt import decrypt
+from odoo.addons.Hesabe_PG_MPGS_v15.models.hesabecrypt import decrypt # type: ignore
 
 
 class HesabeController(http.Controller):
@@ -14,7 +14,7 @@ class HesabeController(http.Controller):
                  '/payment/hesabe/mpgs/fail'], type='http', auth='public', csrf=False, methods=['GET'], save_session=False
     )
     def hesabe_mpgs_return(self, **post):
-        hesabe = request.env['payment.acquirer'].search([('provider', '=', 'Hesabe_PG_MPGS_v15')], limit=1).sudo()
+        hesabe = request.env['payment.acquirer'].sudo().search([('provider', '=', 'Hesabe_PG_MPGS_v15')], limit=1)
         data = decrypt(post['data'], hesabe.secret_key, hesabe.iv_key)
         response = json.loads(data)
         if post:

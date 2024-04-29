@@ -1,3 +1,3 @@
-# odoo V15 (MPGS)
+# odoo V17 (MPGS)
 
-Hesabe MPGS Plugin for Odoo version 15
+Hesabe MPGS Plugin for Odoo version 17
